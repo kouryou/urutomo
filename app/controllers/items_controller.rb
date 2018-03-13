@@ -8,11 +8,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create!(item_params)
-    redirect_to items_complete_path
-  end
-
-  def complete
+    item = Item.create!(item_params)
+    session[:item_id] = item.id
+    redirect_to item_path(item)
   end
 
   private

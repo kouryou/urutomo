@@ -1,2 +1,5 @@
 <h1>Items#show</h1>
 <p><%= @item.id %></p>
+<% if session[:item_id] == @item.id %>
+  <h2>owner</h2>
+<% end %>
