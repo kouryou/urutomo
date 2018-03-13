@@ -1,0 +1,18 @@
+<%= form_for(@item) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control', size: "70x20" %>
+
+  <%= f.label :item_condition %>
+  <%= f.select :item_condition, { "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5 }, class: 'form-control' %>
+
+  <%= f.label :delivery_method %>
+  <%= f.select :delivery_method, { "手渡し": 0, "配送": 1 }, class: 'form-control' %>
+
+  <%= f.label :asking_price %>
+  <%= f.number_field :asking_price, class: 'form-control' %>
+
+  <%= f.submit "出品する", class: "btn btn-primary" %>
+<% end %>
