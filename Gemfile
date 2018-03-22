@@ -11,6 +11,7 @@ gem 'jbuilder',     '2.7.0'
 gem 'friendly_id'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
