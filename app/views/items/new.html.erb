@@ -1,4 +1,9 @@
 <%= form_for(@item) do |f| %>
+  <%= f.label :item_images %>
+  <%= f.fields_for :item_images do |item_images| %>
+    <%= item_images.file_field :image %>
+  <% end %>
+
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
 

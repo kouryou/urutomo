@@ -1,5 +1,9 @@
 <h1>Items#show</h1>
 <p><%= @item.id %></p>
+<% @item.item_images.each do |item_image| %>
+  <p><%= image_tag item_image.image %></p>
+<% end %>
+<p><%= @item.description %></p>
 <% if session[:item_id] == @item.id %>
   <h2>owner</h2>
 <% end %>

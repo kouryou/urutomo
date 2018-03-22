@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    4.times { @item.item_images.build }
   end
 
   def create
@@ -20,6 +21,7 @@ class ItemsController < ApplicationController
                                  :description,
                                  :item_condition,
                                  :delivery_method,
-                                 :asking_price)
+                                 :asking_price,
+                                 item_images_attributes: [:image])
   end
 end
