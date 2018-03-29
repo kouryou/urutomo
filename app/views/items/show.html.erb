@@ -1,3 +1,9 @@
+<head>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content=<%= "#{@item.name}いりませんか?" %>>
+  <meta name="twitter:description" content="うるともで詳細を確認">
+  <meta name="twitter:image" content=<%= @item.item_images.first.image %>>
+</head>
 <h1>Items#show</h1>
 <p><%= @item.id %></p>
 <% @item.item_images.each do |item_image| %>
@@ -5,5 +11,6 @@
 <% end %>
 <p><%= @item.description %></p>
 <% if session[:item_id] == @item.id %>
-  <h2>owner</h2>
+  <p>Twitterで共有!</p>
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <% end %>
