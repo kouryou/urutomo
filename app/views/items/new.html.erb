@@ -1,23 +1,38 @@
-<%= form_for(@item) do |f| %>
-  <%= f.label :item_images %>
-  <%= f.fields_for :item_images do |item_images| %>
-    <%= item_images.file_field :image %>
+<div class="new-item-form">
+  <div class="page-header text-center">
+    <h1>商品の情報を入力</h1>
+  </div>
+  <%= form_for(@item) do |f| %>
+    <%= f.label :item_images, "出品画像" %>
+    <%= f.fields_for :item_images do |item_images| %>
+      <%= item_images.file_field :image, class: "item-images-uploader" %>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, "商品名" %>
+      <%= f.text_field :name, required: true, placeholder: "商品名（40文字まで）", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, "商品の説明" %>
+      <%= f.text_area :description, required: true, placeholder: "商品の説明（1000文字まで）（素材、定価、色、重さ、注意点など）", class: "form-control", maxlength: 1000, size: "20x10" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :item_condition, "商品の状態" %>
+      <%= f.select :item_condition, { "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5 }, {}, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :delivery_method, "配送方法" %>
+      <%= f.select :delivery_method, { "手渡し": 0 }, {}, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :asking_price, "希望販売価格（円）" %>
+      <%= f.number_field :asking_price, required: true, placeholder: "1000", class: "form-control" %>
+    </div>
+
+    <%= f.submit "出品する", class: "btn-red" %>
   <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description, class: 'form-control', size: "70x20" %>
-
-  <%= f.label :item_condition %>
-  <%= f.select :item_condition, { "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5 }, class: 'form-control' %>
-
-  <%= f.label :delivery_method %>
-  <%= f.select :delivery_method, { "手渡し": 0, "配送": 1 }, class: 'form-control' %>
-
-  <%= f.label :asking_price %>
-  <%= f.number_field :asking_price, class: 'form-control' %>
-
-  <%= f.submit "出品する", class: "btn btn-primary" %>
-<% end %>
+</div>
