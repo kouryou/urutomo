@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def show
-    @item = Item.friendly.find(params[:id])
+    @item = Item.find_by(random_url: params[:id])
   end
 
   def new

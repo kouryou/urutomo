@@ -1,2 +1,56 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar-header{
+  float: none;
+  text-align: center;
+}
+
+.navbar-brand{
+  width: 100%;
+  color: #FFFFFF;
+}
+
+.item-box{
+  width: 640px;
+  margin: 0 auto;
+}
+
+.carousel{
+  width: 640px;
+  height: 640px;
+  margin-bottom: 10px;
+  background-color: #FAFAFA;
+}
+
+.table-bordered{
+  width: 640px;
+
+  th{
+    background-color: #FAFAFA;
+    width: 256px;
+  }
+}
+
+.seller-box{
+  background-color: #FAFAFA;
+}
+
+.btn-circle {
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 18px;
+  line-height: 1.428571429;
+  border-radius: 45px;
+  color: #FFFFFF;
+  background-color: #F92834;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  i{
+    font-size: 36px;
+  }
+}
