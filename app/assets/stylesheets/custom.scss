@@ -1,24 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.item-box{
-  width: 640px;
-  margin: 0 auto;
-}
-
 .carousel{
-  width: 640px;
-  height: 640px;
   margin-bottom: 10px;
   background-color: #FAFAFA;
 }
 
 .table-bordered{
-  width: 640px;
-
   th{
     background-color: #FAFAFA;
-    width: 256px;
   }
 }
 
@@ -43,11 +33,6 @@
   i{
     font-size: 36px;
   }
-}
-
-.new-item-form{
-  width: 640px;
-  margin: 0 auto;
 }
 
 .item-images-uploader{

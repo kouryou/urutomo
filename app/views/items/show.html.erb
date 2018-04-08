@@ -3,72 +3,77 @@
   <meta name="twitter:title" content=<%= "#{@item.name}いりませんか?" %>>
   <meta name="twitter:description" content="うるともで詳細を確認。やりとりはTwitter上で。">
   <meta name="twitter:image" content=<%= @item.item_images.first.image %>>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
-<div class="item-box">
-  <h2 class="text-center">
-    <%= @item.name %>
-  </h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2 class="text-center">
+        <%= @item.name %>
+      </h2>
 
-  <div id="carousel-item-images" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <% @item.item_images.count.times do |num| %>
-        <li data-target="#carousel-item-images" data-slide-to=<%= num %> class=<%= "active" if num == 0 %>></li>
-      <% end %>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <% @item.item_images.each_with_index do |item_image, image_count| %>
-        <% if image_count == 0 %>
-          <div class="item active">
-        <% else %>
-          <div class="item">
-        <% end %>
-          <%= image_tag item_image.image %>
+      <div id="carousel-item-images" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% @item.item_images.count.times do |num| %>
+            <li data-target="#carousel-item-images" data-slide-to=<%= num %> class=<%= "active" if num == 0 %>></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <% @item.item_images.each_with_index do |item_image, image_count| %>
+            <% if image_count == 0 %>
+              <div class="item active">
+            <% else %>
+              <div class="item">
+            <% end %>
+              <%= image_tag item_image.image %>
+            </div>
+          <% end %>
+        </div>
+        <a class="left carousel-control" href="#carousel-item-images" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-item-images" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+      </div>
+
+
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th class="col-xs-5">商品の状態</th>
+            <td class="col-xs-7"><%= @item.item_condition %></td>
+          </tr>
+          <tr>
+            <th class="col-xs-5">配送方法</th>
+            <td class="col-xs-7"><%= @item.delivery_method %></td>
+          </tr>
+          <tr>
+            <th class="col-xs-5">希望販売価格</th>
+            <td class="col-xs-7"><%= "#{@item.asking_price}円" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="item-description">
+        <%= @item.description %>
+      </div>
+
+      <% if session[:item_id] == @item.id %>
+        <div class="seller-box">
+          <h3>フォロワーに出品を知らせよう！</h3>
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-lang="ja" data-show-count="false" data-hashtags="うるとも">ツイート</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       <% end %>
+
+      <%= link_to new_item_path do %>
+        <button type="button" class="btn btn-circle">
+          出品
+          <br>
+          <i class="glyphicon glyphicon-camera"></i>
+        </button>
+      <% end %>
     </div>
-    <a class="left carousel-control" href="#carousel-item-images" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-item-images" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    </a>
   </div>
-
-
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <th>商品の状態</th>
-        <td><%= @item.item_condition %></td>
-      </tr>
-      <tr>
-        <th>配送方法</th>
-        <td><%= @item.delivery_method %></td>
-      </tr>
-      <tr>
-        <th>希望販売価格</th>
-        <td><%= "#{@item.asking_price}円" %></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="item-description">
-    <%= @item.description %>
-  </div>
-
-  <% if session[:item_id] == @item.id %>
-    <div class="seller-box">
-      <h3>フォロワーに出品を知らせよう！</h3>
-      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-lang="ja" data-show-count="false" data-hashtags="うるとも">ツイート</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-  <% end %>
 </div>
-
-<%= link_to new_item_path do %>
-  <button type="button" class="btn btn-circle">
-    出品
-    <br>
-    <i class="glyphicon glyphicon-camera"></i>
-  </button>
-<% end %>
