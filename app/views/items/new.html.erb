@@ -25,7 +25,7 @@
 
         <div class="form-group">
           <%= f.label :item_condition, "商品の状態" %>
-          <%= f.select :item_condition, { "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5 }, {}, { class: "form-control" } %>
+          <%= f.select :item_condition, Item.item_conditions_i18n.invert, {}, { class: "form-control" } %>
         </div>
 
         <div class="form-group">

@@ -1,0 +1,10 @@
+ja:
+  enums:
+    item:
+      item_condition:
+        very_good: 新品、未使用
+        good: 未使用に近い
+        almost_good: 目立った傷や汚れなし
+        almost_bad: やや傷や汚れあり
+        bad: 傷や汚れあり
+        very_bad: 全体的に状態が悪い

@@ -65,6 +65,8 @@ GEM
     crass (1.0.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.7.0)
     excon (0.61.0)
     execjs (2.7.0)
@@ -396,6 +398,7 @@ DEPENDENCIES
   byebug (= 9.0.6)
   carrierwave
   coffee-rails (= 4.2.2)
+  enum_help
   fog
   friendly_id
   guard (= 2.13.0)
