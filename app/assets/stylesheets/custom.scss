@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.container{
+  margin-bottom: 90px;
+}
+
 .carousel{
   margin-bottom: 10px;
   background-color: #FAFAFA;
