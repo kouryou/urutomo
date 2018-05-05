@@ -57,7 +57,7 @@
       </table>
 
       <div class="item-description">
-        <%= @item.description %>
+        <%= simple_format(h(@item.description)) %>
       </div>
 
       <% if session[:item_id] == @item.id %>
