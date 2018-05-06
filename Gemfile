@@ -15,6 +15,7 @@ gem 'fog'
 gem 'bootstrap-sass', '3.3.7'
 gem 'enum_help'
 gem 'google-analytics-rails'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
