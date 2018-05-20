@@ -1,5 +1,5 @@
 <% set_meta_tags twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "『#{@item.name}』いりませんか?",
     description: "うるともで詳細を確認。やりとりはTwitter上で。",
     image: @item.item_images.first.image,
@@ -7,9 +7,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h2 class="text-center">
+      <h1 class="text-center">
         <%= @item.name %>
-      </h2>
+      </h1>
 
       <div id="carousel-item-images" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -58,9 +58,13 @@
         <%= simple_format(h(@item.description)) %>
       </div>
 
+      <div class="message-red">
+        購入に関するやりとりはTwitter上で
+      </div>
+
       <% if session[:item_id] == @item.id %>
         <div class="seller-box">
-          <h3>フォロワーに出品を知らせよう！</h3>
+          <h2>フォロワーに出品を知らせよう！</h2>
           <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-lang="ja" data-show-count="false" data-hashtags="うるとも">ツイート</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       <% end %>
